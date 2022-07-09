@@ -1,6 +1,7 @@
 //express/router setup 
 import express from 'express'
 const router = express.Router();
+import {Comment} from '../../models/index.js'
 
 //router get all
 router.get('/', (req, res) => {
@@ -33,7 +34,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     //check the session
     if (req.session) {
-        Comment.delete({
+        Comment.destroy({
             where: {
                 id: req.params.id
             }

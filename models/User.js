@@ -3,7 +3,7 @@ import pkg from 'sequelize';
 const { Sequelize, Model, DataTypes } = pkg;
 
 //import database connection
-import sequelize from '../config/connection';
+import sequelize from '../config/connection.js';
 
 //creates class user and extends off sequelize model
 class User extends Model{

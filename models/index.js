@@ -1,6 +1,6 @@
 import User from './User.js'
-import Post from './Post'
-import Comment from './Comment'
+import Post from './Post.js'
+import Comment from './Comment.js'
 //create associations
 
 User.hasMany(Post, {

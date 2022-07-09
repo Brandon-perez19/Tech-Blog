@@ -3,7 +3,7 @@ import pkg from 'sequelize';
 const { Sequelize, Model, DataTypes } = pkg;
 
 //import database connection
-import sequelize from '../config/connection';
+import sequelize from '../config/connection.js';
 
 class Comment extends Model {
 

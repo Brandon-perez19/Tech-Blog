@@ -3,7 +3,7 @@ import pkg from 'sequelize';
 const { Sequelize, Model, DataTypes } = pkg;
 
 //import database connection
-import sequelize from '../config/connection';
+import sequelize from '../config/connection.js';
 
 class Post extends Model {
 
@@ -33,7 +33,7 @@ Post.init({
         }
     },
     user_id:{
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references:{
             model: "user",
             key: 'id'
