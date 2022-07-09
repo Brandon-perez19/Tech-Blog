@@ -7,7 +7,7 @@ import {Comment, Post, User} from '../../models/index.js';
 //get all users
 router.get('/', (req, res) => {
     User.findAll({
-        //exclude passwords after testing functionality
+        attributes: {exclude: ['password']}
     })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -79,9 +79,11 @@ router.post('/login', (req, res) => {
             return
         }
 
-        //create validate password option
+        //checks to see if the password the user enter is the one associated with the account
+        const validatePassword = dbUserData.checkPassword(req.body.password);
 
-        if(!validPassword) {
+        //if password does not match, send message:
+        if(!validatePassword) {
             res.status(400).json({ message: 'Incorrect Password'})
             return;
         }
@@ -99,6 +101,14 @@ router.post('/login', (req, res) => {
 
 //user logout
 router.post('/logout', (req, res) => {
+    if(req.session.loggedIn) {
+        req.session.destroy( () => {
+            res.status(204).end()
+        })
+    }
+    else {
+        res.status(404).end()
+    }
 
 })
 

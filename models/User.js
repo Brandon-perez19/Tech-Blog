@@ -7,7 +7,9 @@ import sequelize from '../config/connection.js';
 
 //creates class user and extends off sequelize model
 class User extends Model{
-    //{password encryption checker}
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password)
+    }
 }
 
 //defining user table columns and configuration
@@ -46,6 +48,17 @@ User.init (
         }
     },
     {   //{hooks for password encryption}
+        hooks:{
+            async beforeCreate(newUserData) {
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
+            },
+            
+            async beforeUpdate(updatedUserData){
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
+            }
+        },
 
         //table configuration options
         sequelize,
