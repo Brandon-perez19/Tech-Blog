@@ -1,8 +1,8 @@
 {{!-- populates posts on the homepage --}}
-<ol>
+<ol class="list-group">
     {{!-- for each post, generate a list item with post info in it --}}
     {{#each posts as |post|}}
-    <li>
+    <li class="list-group-item">
         {{> post-info post}}
     </li>
     {{/each}}

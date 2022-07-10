@@ -5,15 +5,14 @@ import sequelize from './config/connection.js';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+//connecting to static files 
+app.use(express.static('public'))
 
 //importing handlebars templating engine
 import expressHandlebars  from 'express-handlebars';
 const hbs = expressHandlebars.create();
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-
-//connecting to static files 
-app.use(express.static('public'))
 
 //server middleware
 app.use(express.json());
