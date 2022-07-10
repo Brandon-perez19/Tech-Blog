@@ -1,10 +1,10 @@
-<div>
+<div class="my-2 mx-3">
     {{#each this}}
-    <section>
-        <div>
-            {{user.username}} on {{created_at}}
+    <section class="card">
+        <div class="card-header">
+            Comment by: {{user.username}} on {{created_at}}
         </div>
-        <div>
+        <div class="card-body">
             {{comment_text}}
         </div>
     </section>

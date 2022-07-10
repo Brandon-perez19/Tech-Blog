@@ -7,16 +7,18 @@ import {Post, User, Comment} from '../models/index.js'
 router.get('/', (req, res) => {
     Post.findAll({
         attributes: ['id', 'title', 'post_url','created_at'],
-    },
-    {
-        include: {
+        include: [{
             model: Comment,
             attributes: ['id','comment_text', 'post_id', 'user_id', 'created_at'],
             include: {
                 model: User,
                 attributes: ['username']
             }
-        }
+        },
+        {
+            model: User,
+            attributes:['username']
+        }]
     })
     .then(dbPostData => {
         const posts = dbPostData.map(post => post.get({plain: true}));
@@ -49,14 +51,18 @@ router.get('/post/:id', (req, res) => {
             id: req.params.id
         },
         attributes: ['id', 'title', 'post_url','created_at'],
-        include: {
+        include:[ {
             model: Comment,
             attributes: ['id','comment_text', 'post_id', 'user_id', 'created_at'],
-            include: {
+            include:{
                 model: User,
                 attributes: ['username']
             }
-        }
+        },
+        {
+            model: User,
+            attributes:['username']
+        }] 
     })
     .then(dbPostData => {
         if(!dbPostData) {

@@ -1,10 +1,10 @@
-<article class="card">
+<article class="card m-1">
     <div class="card-header">
         <a href="{{post_url}}" target="_blank"> {{title}} </a>
         <span> ({{post_url}}) </span>
     </div>
     <div class="card-body">
-        by {{user.username}} on {{created_at}}
-        <a href="/post/{{id}}"> {{comments.length}} </a>
+        by {{user.username}} on {{created_at}} <br>
+        <a href="/post/{{id}}"> Comments </a>
     </div>
 </article>
