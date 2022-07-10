@@ -5,18 +5,21 @@ import sequelize from './config/connection.js';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-//connecting to static files 
-app.use(express.static('public'))
+//formats date in handlebars
+import helpers from './utils/helpers.js'
 
 //importing handlebars templating engine
-import expressHandlebars  from 'express-handlebars';
-const hbs = expressHandlebars.create();
+import exphbs from 'express-handlebars';
+const hbs = exphbs.create({helpers});
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 //server middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true }));
+
+//connecting to static files 
+app.use(express.static('public'))
 
 //sessions set-up
 import expressSession from 'express-session';

@@ -2,7 +2,7 @@
     {{#each this}}
     <section class="card">
         <div class="card-header">
-            Comment by: {{user.username}} on {{created_at}}
+            Comment by: {{user.username}} on {{format_Date created_at}}
         </div>
         <div class="card-body">
             {{comment_text}}

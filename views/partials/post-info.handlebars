@@ -4,7 +4,7 @@
         <span> ({{post_url}}) </span>
     </div>
     <div class="card-body">
-        by {{user.username}} on {{created_at}} <br>
-        <a href="/post/{{id}}"> Comments </a>
+        by {{user.username}} on {{format_Date created_at}} <br>
+        <a href="/post/{{id}}" class="text-muted"> Comments </a>
     </div>
 </article>
