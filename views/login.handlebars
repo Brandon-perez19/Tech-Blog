@@ -1,16 +1,16 @@
-<section class="row mx-1">
+
     <div class="mx-3 my-3 card col">
-        <form>
+        <form id="login-form">
             <h2 class="h2 text-center fw-light card-header">
                 Login
             </h2>
             <div class="my-3 mx-3">
-                <label class="form-label"> Email: </label>
-                <input class="form-control" type="email" placeholder="Email">
+                <label  class="form-label"> Email: </label>
+                <input id='login-email' class="form-control" type="email" placeholder="Email">
             </div>
             <div class="my-3 mx-3">
                 <label class="form-label"> Password: </label>
-                <input class="form-control" type="password" placeholder="Password">
+                <input id='login-password' class="form-control" type="password" placeholder="Password">
             </div>
             <div class="my-3 mx-3">
                 <button class="btn btn-primary" type="submit"> Login!</button>
@@ -18,23 +18,25 @@
         </form>
     </div>
     <div class="mx-3 my-3 card col">
-        <form>
+        <form id="signup-form">
             <h2 class="h1 text-center fw-light card-header"> Sign Up </h2>
             <div class="my-3 mx-3">
                 <labelclass= "form-label"> Email: </label>
-                    <input class="form-control" type="email" name="email" placeholder="Email">
+                    <input id='signup-email' class="form-control" type="email" name="email" placeholder="Email">
             </div>
             <div class="my-3 mx-3">
                 <label class="form-label" for="username"> Username: </label>
-                <input class="form-control" type="text" name="username" placeholder="Username">
+                <input id='signup-username' class="form-control" type="text" name="username" placeholder="Username">
             </div>
             <div class="my-3 mx-3">
                 <label class="form-label" for="password"> Password: </label>
-                <input class="form-control" type="password" name="password" placeholder="Password">
+                <input id='signup-password' class="form-control" type="password" name="password" placeholder="Password">
             </div>
             <div class="my-3 mx-3">
                 <button class="btn btn-primary" type="submit"> Sign Up!</button>
             </div>
         </form>
     </div>
-</section>
+
+
+<script src="/javascript/login.js"></script>

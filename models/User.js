@@ -5,6 +5,9 @@ const { Sequelize, Model, DataTypes } = pkg;
 //import database connection
 import sequelize from '../config/connection.js';
 
+//import bcrypt
+import bcrypt from 'bcrypt'
+
 //creates class user and extends off sequelize model
 class User extends Model{
     checkPassword(loginPw) {
