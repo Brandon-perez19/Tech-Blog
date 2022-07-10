@@ -16,25 +16,25 @@
             <nav>
                 <ul>
                     <li>
-                        <a>
+                        <a href="/">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a>
+                        <a href="/dashboard">
                             Dashboard
                         </a>
                     </li>
                     {{#if loggedIn}}
                     <li>
-                        <a>
-                            Login
+                        <a href="/">
+                            Logout
                         </a>
                     </li>
                     {{else}}
                     <li>
-                        <a>
-                            Logout
+                        <a href="/login">
+                            Login
                         </a>
                     </li>
                     {{/if}}

@@ -1,0 +1,9 @@
+{{!-- populates posts on the homepage --}}
+<ol>
+    {{!-- for each post, generate a list item with post info in it --}}
+    {{#each posts as |post|}}
+    <li>
+        {{> post-info post}}
+    </li>
+    {{/each}}
+</ol>
