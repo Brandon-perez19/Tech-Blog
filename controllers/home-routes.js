@@ -6,7 +6,7 @@ import {Post, User, Comment} from '../models/index.js'
 
 router.get('/', (req, res) => {
     Post.findAll({
-        attributes: ['id', 'title', 'post_url','created_at'],
+        attributes: ['id', 'title', 'post_content','created_at'],
         include: [{
             model: Comment,
             attributes: ['id','comment_text', 'post_id', 'user_id', 'created_at'],
@@ -50,7 +50,7 @@ router.get('/post/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'title', 'post_url','created_at'],
+        attributes: ['id', 'title', 'post_content','created_at'],
         include:[ {
             model: Comment,
             attributes: ['id','comment_text', 'post_id', 'user_id', 'created_at'],

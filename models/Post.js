@@ -25,11 +25,11 @@ Post.init({
             len:[10]
         }
     },
-    post_url:{
+    post_content:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
-            isUrl: true
+            len:[4]
         }
     },
     user_id:{

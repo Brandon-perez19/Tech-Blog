@@ -1,10 +1,9 @@
 <article class="card m-1">
     <div class="card-header">
-        <a href="{{post_url}}" target="_blank"> {{title}} </a>
-        <span> ({{post_url}}) </span>
+        {{title}} by {{user.username}} on {{format_Date created_at}} <br>
+        <a href="/post/{{id}}" class="text-muted"> Comments </a>
     </div>
     <div class="card-body">
-        by {{user.username}} on {{format_Date created_at}} <br>
-        <a href="/post/{{id}}" class="text-muted"> Comments </a>
+        <p> {{post_content}} </p>
     </div>
 </article>

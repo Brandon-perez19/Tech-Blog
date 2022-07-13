@@ -9,7 +9,7 @@ import {Comment, Post, User} from '../../models/index.js';
 //router get all
 router.get('/', (req, res) => {
     Post.findAll({
-        attributes: ['id', 'title', 'post_url', 'user_id'],
+        attributes: ['id', 'title', 'post_content', 'user_id'],
         //orders the results based on creation from newest to oldest
         order: [['created_at', 'DESC']],
         include: {
@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     Post.create({
         title: req.body.title,
-        post_url: req.body.post_url,
+        post_content: req.body.post_content,
         user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))

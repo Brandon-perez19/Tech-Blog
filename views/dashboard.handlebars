@@ -1,14 +1,14 @@
 <section>
     <div class="mx-3 mb-3">
         <h1 class="h1 text-center fw-light mt-2"> Create a new post!</h1>
-        <form>
+        <form id="new-post">
             <div class="mb-3">
                 <label class="form-label"> Title: </label>
-                <input class="form-control" type="text" placeholder="Post title" name="title" />
+                <input class="form-control" type="text" placeholder="Post title" id='post-title' name="title" />
             </div>
             <div class="mb-3">
-                <label class="form-label"> Post Url: </label>
-                <input class="form-control" type="text" placeholder="Post Url" name="url" />
+                <label class="form-label"> Content: </label>
+                <input class="form-control" type="text" placeholder="Tell us all about it..." id='post-content' name="content" />
             </div>
             <button type="submit" class="btn btn-primary"> Create!</button>
         </form>
@@ -30,3 +30,4 @@
     </div>
 </section>
 {{/if}}
+<script src="/javascript/add-post.js"

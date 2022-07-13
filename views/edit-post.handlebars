@@ -3,18 +3,18 @@
     <form>
         <div>
             <input type="text" name="edit-post" value="{{post.title}}" />
-            <em> ({{post.post_url}}) </em>
+            <em> ({{post.post_content}}) </em>
         </div>
         <div>
             <a href="/post/{{post.id}}"> {{post.comments.length}} </a>
         </div>
         <button type="submit"> Save Post </button>
-        <button type="button"> Delete Post</button>
+        <button id='delete-post' type="button"> Delete Post</button>
     </form>
 </article>
-<form>
+<form id="comment-form">
     <div>
-        <textarea></textarea>
+        <textarea name="comment-text"></textarea>
     </div>
     <div>
         <button type="submit"> Add comment </button>
@@ -23,3 +23,7 @@
 
 {{!-- populates comments in database --}}
 {{> comments post.comments}}
+
+<script src="/javascript/add-comment.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/edit-post.js"></script>
