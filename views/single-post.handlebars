@@ -1,17 +1,22 @@
 {{> post-info post}}
 {{#if loggedIn}}
-<form class="my-2">
-    <div>
-        <textarea></textarea>
+<form class="my-2" id="comment-form">
+    <div class="mb-3 mx-3">
+        <textarea name="comment-text" class="form-control" ></textarea>
     </div>
-    <div>
+    <div class="mb-3 mx-3">
         <button type="submit"> Add Comment</button>
     </div>
 </form>
+
 {{/if}}
 
-{{> comments post.comments}}
+{{!-- comments refers to the partials. Post refers to the object we passed in and comments is a property of that object
+comments is a property due to use linking the comment model in the post findall route
+this can be seen in an api client --}}
+
+{{>comments post.comments}}
 
 {{#if loggedIn}}
-
+<script src="/javascript/add-comment.js"></script>
 {{/if}}

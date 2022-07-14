@@ -1,28 +1,31 @@
-<article>
-    <h2> Edit Post</h2>
-    <form>
-        <div>
-            <input type="text" name="edit-post" value="{{post.title}}" />
-            <em> ({{post.post_content}}) </em>
+<article class="mx-3 mb-3">
+    <h2 class="h1 text-center fw-light mt-2"> Edit Post:</h2>
+    <form id="edit-form">
+        <div class="mb-3">
+            <h3> Post Title: </h3>
+            <input class="form-control" type="text" name="edit-post" placeholder="{{post.title}}" value="{{post.title}}" />
+            <h3> Comment Body: </h3>
+            <p> {{post.post_content}} </p>
         </div>
-        <div>
-            <a href="/post/{{post.id}}"> {{post.comments.length}} </a>
+        <div class="mb-3">
+            <a href="/post/{{post.user_id}}"> {{post.comments.length}} </a>
         </div>
-        <button type="submit"> Save Post </button>
-        <button id='delete-post' type="button"> Delete Post</button>
+        <button type="submit" class="btn btn-success"> Save Post </button>
+        <button id='delete-post' type="button" class="btn btn-danger"> Delete Post</button>
+    </form>
+    <form id="comment-form">
+        <div class="my-3">
+            <textarea class="form-control" name="comment-text" placeholder="Add your comment here!"></textarea>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary"> Add comment </button>
+        </div>
     </form>
 </article>
-<form id="comment-form">
-    <div>
-        <textarea name="comment-text"></textarea>
-    </div>
-    <div>
-        <button type="submit"> Add comment </button>
-    </div>
-</form>
+
 
 {{!-- populates comments in database --}}
-{{> comments post.comments}}
+{{>comments post.comments }}
 
 <script src="/javascript/add-comment.js"></script>
 <script src="/javascript/delete-post.js"></script>

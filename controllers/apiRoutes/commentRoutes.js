@@ -15,8 +15,10 @@ router.get('/', (req, res) => {
 
 //router create
 router.post('/', (req, res) => {
+    console.log("I'm being called before if")
     //check the session 
     if (req.session) {
+        console.log("I'm being called")
         Comment.create({
             comment_text: req.body.comment_text,
             user_id: req.session.user_id,

@@ -1,6 +1,6 @@
 async function editPostHandler(event) {
     event.preventDefault();
-    const title = document.querySelector('input[name="post-title').ariaValueMax.trim();
+    const title = document.querySelector('input[name="edit-post"]').value.trim();
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
@@ -21,3 +21,5 @@ async function editPostHandler(event) {
         alert(response.statusText);
     }
 };
+
+document.querySelector('#edit-form').addEventListener("submit", editPostHandler);

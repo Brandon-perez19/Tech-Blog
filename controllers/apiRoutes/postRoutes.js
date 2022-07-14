@@ -12,14 +12,14 @@ router.get('/', (req, res) => {
         attributes: ['id', 'title', 'post_content', 'user_id'],
         //orders the results based on creation from newest to oldest
         order: [['created_at', 'DESC']],
-        include: {
+        include: [{
             model: Comment,
             attributes: ['id','comment_text', 'post_id', 'user_id', 'created_at'],
             include: {
                 model: User,
                 attributes: ['username']
             }
-        }
+        }]
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
