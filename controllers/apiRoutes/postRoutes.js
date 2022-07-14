@@ -5,6 +5,8 @@ const router = express.Router();
 //import models associations
 import {Comment, Post, User} from '../../models/index.js';
 
+//importing authorization code
+import withAuth from '../../utils/authorization.js'
 
 //router get all
 router.get('/', (req, res) => {
@@ -50,7 +52,7 @@ router.get('/:id', (req, res) => {
     })
 });
 //router create
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
         post_content: req.body.post_content,
@@ -63,7 +65,7 @@ router.post('/', (req, res) => {
     })
 });
 //router update
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
             title: req.body.title
@@ -86,7 +88,7 @@ router.put('/:id', (req, res) => {
     })
     });
 //router delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

@@ -1,7 +1,11 @@
 //express/router setup 
 import express from 'express'
 const router = express.Router();
+
 import {Comment} from '../../models/index.js'
+
+//importing authorization code
+import withAuth from '../../utils/authorization.js'
 
 //router get all
 router.get('/', (req, res) => {
@@ -14,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 //router create
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     console.log("I'm being called before if")
     //check the session 
     if (req.session) {
@@ -33,7 +37,7 @@ router.post('/', (req, res) => {
 });
 
 //router delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     //check the session
     if (req.session) {
         Comment.destroy({

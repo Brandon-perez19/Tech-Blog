@@ -5,7 +5,10 @@ const router = express.Router();
 //importing associations
 import {Post, User, Comment} from '../models/index.js'
 
-router.get('/', (req, res) => {
+//importing authorization code
+import withAuth from '../utils/authorization.js'
+
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -35,7 +38,7 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
     Post.findByPk(req.params.id, {
         attributes: ['id', "title", 'user_id', 'created_at', 'post_content'],
         include: [{
