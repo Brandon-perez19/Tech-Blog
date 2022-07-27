@@ -24,6 +24,9 @@
   ## How to Contribute <br>
   Adding other functional features that are implemented on other blogs
 
+  ## Link to Deployment
+  https://whispering-plateau-17922.herokuapp.com/
+  
   ## Tests <br>
   This application has no tests
   
