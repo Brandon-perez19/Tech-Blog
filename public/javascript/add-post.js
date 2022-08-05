@@ -13,13 +13,19 @@ async function newPostHandler(event) {
         headers: {
             'Content-Type': 'application/json'
         }
+    }).then((response) => {
+        if(response.ok){
+            document.location.replace('/dashboard/')
+        } 
+        return response.json().then((body) => {
+            console.log(body)
+            var errorArr = body.errors
+            for (let i = 0; i < errorArr.length; i++) {
+                var errorMessage = errorArr[i].message
+                alert(errorMessage)
+            }
+        })
     })
-
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert(response.statusText)
-    }
 }
 
 document.querySelector('#new-post').addEventListener('submit', newPostHandler)

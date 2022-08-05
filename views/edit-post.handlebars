@@ -4,11 +4,11 @@
         <div class="mb-3">
             <h3> Post Title: </h3>
             <input class="form-control" type="text" name="edit-post" placeholder="{{post.title}}" value="{{post.title}}" />
-            <h3> Comment Body: </h3>
+            <h3> Post Content: </h3>
             <p> {{post.post_content}} </p>
         </div>
         <div class="mb-3">
-            <a href="/post/{{post.user_id}}"> {{post.comments.length}} </a>
+            <p> Comment(s) {{post.comments.length}} </p>
         </div>
         <button type="submit" class="btn btn-success"> Save Post </button>
         <button id='delete-post' type="button" class="btn btn-danger"> Delete Post</button>
