@@ -24,7 +24,10 @@
   ## How to Contribute <br>
   Adding other functional features that are implemented on other blogs
 
-  ## Link to Deployment
+  ## Screenshot Of Application <br>
+  ![](/public/images/application.png)
+  
+  ## Link to Deployment <br>
   https://whispering-plateau-17922.herokuapp.com/
   
   ## Tests <br>
