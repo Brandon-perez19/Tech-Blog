@@ -43,6 +43,7 @@ router.get('/login', (req, res) => {
     //if user is not logged in, send them to login page
     console.log(req.session);
     res.render('login');
+    
 })
 
 router.get('/post/:id', (req, res) => {

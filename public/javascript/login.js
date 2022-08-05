@@ -1,5 +1,4 @@
 
-
 async function loginHandler (event) {
     event.preventDefault();
 
@@ -41,13 +40,19 @@ async function signupHandler (event){
                 username
             }),
             headers: {'Content-type': 'application/json'}
-        });
-
-        if(response.ok){
-            document.location.replace('/dashboard/')
-        } else {
-            alert(response.statusText)
-        }
+        }).then((response) => {
+            if(response.ok){
+                document.location.replace('/dashboard/')
+            } 
+            return response.json().then((body) => {
+                console.log(body)
+                var errorArr = body.errors
+                for (let i = 0; i < errorArr.length; i++) {
+                    var errorMessage = errorArr[i].message
+                    alert(errorMessage)
+                }
+            })
+        })
     }
 };
 
